@@ -85,7 +85,7 @@ class HttpAdapterExampleFactory2 implements HttpAdapterFactory {
 
 /* Extra */
 
-const httpAdapterFactory = (adapter: adapters): HttpAdapterFactory => {
+const validateAdapter = (adapter: adapters): HttpAdapterFactory => {
   switch (adapter) {
     case 'example':
       return new HttpAdapterExampleFactory();
@@ -96,15 +96,15 @@ const httpAdapterFactory = (adapter: adapters): HttpAdapterFactory => {
   }
 };
 
-const testAdapter = (httpAdapter: adapters) => {
-  const httpAdapterToTest = httpAdapterFactory(httpAdapter);
-  httpAdapterToTest.makeAdapter();
-  console.log(httpAdapterToTest)
+const callAdapter = (httpAdapter: adapters) => {
+  const httpAdapterToCall = validateAdapter(httpAdapter);
+  httpAdapterToCall.makeAdapter();
+  console.log(httpAdapterToCall)
 };
 
 const main = () => {
-  testAdapter('example');
-  testAdapter('example2');
+  callAdapter('example');
+  callAdapter('example2');
 };
 
 main();
