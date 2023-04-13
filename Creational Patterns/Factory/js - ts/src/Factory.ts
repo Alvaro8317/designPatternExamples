@@ -73,7 +73,7 @@ interface HttpAdapterFactory {
 
 class HttpAdapterExampleFactory implements HttpAdapterFactory {
   public makeAdapter(): HttpAdapterBase {
-    return new HttpAdapterExample;
+    return new HttpAdapterExample();
   }
 }
 
@@ -88,7 +88,6 @@ class HttpAdapterExampleFactory2 implements HttpAdapterFactory {
 const httpAdapterFactory = (adapter: adapters): HttpAdapterFactory => {
   switch (adapter) {
     case 'example':
-      console.log('Example!!');
       return new HttpAdapterExampleFactory();
     case 'example2':
       return new HttpAdapterExampleFactory2();
@@ -97,18 +96,15 @@ const httpAdapterFactory = (adapter: adapters): HttpAdapterFactory => {
   }
 };
 
-/* To implement */
-// const testAdapter = (httpAdapter: HttpAdapterFactory) => {
-//   httpAdapterFactory(httpAdapter)
-// }
+const testAdapter = (httpAdapter: adapters) => {
+  const httpAdapterToTest = httpAdapterFactory(httpAdapter);
+  httpAdapterToTest.makeAdapter();
+  console.log(httpAdapterToTest)
+};
 
 const main = () => {
-  const test = httpAdapterFactory('example');
-  test.makeAdapter();
-  console.log(test);
-  const test2 = httpAdapterFactory('example2');
-  test2.makeAdapter();
-  console.log(test2);
+  testAdapter('example');
+  testAdapter('example2');
 };
 
 main();

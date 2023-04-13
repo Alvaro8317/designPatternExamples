@@ -54,7 +54,7 @@ var HttpAdapterExampleFactory = /** @class */ (function () {
     function HttpAdapterExampleFactory() {
     }
     HttpAdapterExampleFactory.prototype.makeAdapter = function () {
-        return new HttpAdapterExample;
+        return new HttpAdapterExample();
     };
     return HttpAdapterExampleFactory;
 }());
@@ -67,10 +67,9 @@ var HttpAdapterExampleFactory2 = /** @class */ (function () {
     return HttpAdapterExampleFactory2;
 }());
 /* Extra */
-var htppAdapterFactory = function (adapter) {
+var httpAdapterFactory = function (adapter) {
     switch (adapter) {
         case 'example':
-            console.log('Example!!');
             return new HttpAdapterExampleFactory();
         case 'example2':
             return new HttpAdapterExampleFactory2();
@@ -78,12 +77,13 @@ var htppAdapterFactory = function (adapter) {
             throw new Error('Nos implemented yet');
     }
 };
+var testAdapter = function (httpAdapter) {
+    var httpAdapterToTest = httpAdapterFactory(httpAdapter);
+    httpAdapterToTest.makeAdapter();
+    console.log(httpAdapterToTest);
+};
 var main = function () {
-    var test = htppAdapterFactory('example');
-    test.makeAdapter();
-    console.log(test);
-    var test2 = htppAdapterFactory('example2');
-    test2.makeAdapter();
-    console.log(test2);
+    testAdapter('example');
+    testAdapter('example2');
 };
 main();
