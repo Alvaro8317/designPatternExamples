@@ -1,0 +1,28 @@
+{
+  "description": "Show examples of various dessign patterns",
+  "name": "dessignpatterns",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "factory": "ts-node Creational Patterns/Singleton/typescript/src/Singleton"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alvaro8317/designPatternExamples.git"
+  },
+  "keywords": [
+    "typescript",
+    "creational",
+    "design",
+    "pattern",
+    "patterns",
+    "java",
+    "python"
+  ],
+  "author": "Alvaro Garzón <eduardo831_@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alvaro8317/dessignPatternExamples/issues"
+  },
+  "homepage": "https://github.com/Alvaro8317/dessignPatternExamples#readme"
+}
